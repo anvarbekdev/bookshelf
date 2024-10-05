@@ -3,7 +3,7 @@ const secret = import.meta.env.VITE_SECRET;
 const key = import.meta.env.VITE_KEY;
 const apiUrl = import.meta.env.VITE_API_URL;
 
-export const fetchBooks = async (title?: string) => {
+export const fetchBooks = async () => {
   const method = "GET";
   const url = `/books`;
   const stringToSign = `${method}${url}${secret}`;

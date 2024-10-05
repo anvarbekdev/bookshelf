@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
   CircularProgress,
+  Box,
 } from "@mui/material";
 
 interface User {
@@ -20,8 +21,8 @@ function Myself() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const key = "MyUserKey"; // O'zingizning kalitni qo'shing
-      const secret = "2892678138d8d793a28fc49055095d8b"; // O'zingizning maxfiy kalitni qo'shing
+      const key = "MyUserKey";
+      const secret = "2892678138d8d793a28fc49055095d8b";
       const method = "GET";
       const url = "/myself";
 
@@ -56,7 +57,19 @@ function Myself() {
   }, []);
 
   if (loading) {
-    return <CircularProgress />;
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        <CircularProgress size={50} />
+      </Box>
+    );
   }
 
   if (error) {

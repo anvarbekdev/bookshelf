@@ -29,8 +29,8 @@ import {
 } from "@mui/icons-material";
 import CryptoJS from "crypto-js";
 import AddBookModal from "../components/AddBookModal";
-import {  Book, BooksResponse } from "../types/book";
-import { useNavigate } from "react-router-dom";
+import { Book, BooksResponse } from "../types/book";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchBooks } from "../services/api";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -179,12 +179,19 @@ export default function BooksPage() {
             <Box
               sx={{
                 display: "flex",
+                flexDirection: { xs: "column", md: "row" },
                 justifyContent: "space-between",
+                gap: "1rem",
                 alignItems: "center",
                 marginBottom: "1rem",
               }}
             >
               <AddBookModal />
+              <Link to={"/myself"}>
+                <Button variant="contained" color="inherit">
+                  Go to My Self
+                </Button>
+              </Link>
               <TextField
                 variant="outlined"
                 size="small"
